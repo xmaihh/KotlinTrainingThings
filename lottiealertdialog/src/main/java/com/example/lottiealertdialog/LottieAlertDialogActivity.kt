@@ -1,6 +1,8 @@
 package com.example.lottiealertdialog
 
+import android.app.Activity
 import android.graphics.Color
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -15,6 +17,8 @@ class LottieAlertDialogActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lottie_alert_dialog)
+        hideBottomUIMenu(this)
+
         alertDialog = LottieAlertDialog.Builder(this, DialogTypes.TYPE_LOADING)
             .setTitle("Loading")
             .setDescription("Please Wait")
@@ -53,15 +57,16 @@ class LottieAlertDialogActivity : AppCompatActivity() {
                     })
                     .setNegativeListener(object : ClickListener {
                         override fun onClick(dialog: LottieAlertDialog) {
-                            alertDialog.changeDialog(LottieAlertDialog.Builder(parentActivity, DialogTypes.TYPE_WARNING)
-                                .setTitle("Warning")
-                                .setDescription("Some warning.")
-                                .setPositiveText("Okay")
-                                .setPositiveListener(object : ClickListener {
-                                    override fun onClick(dialog: LottieAlertDialog) {
-                                        dialog.dismiss()
-                                    }
-                                })
+                            alertDialog.changeDialog(
+                                LottieAlertDialog.Builder(parentActivity, DialogTypes.TYPE_WARNING)
+                                    .setTitle("Warning")
+                                    .setDescription("Some warning.")
+                                    .setPositiveText("Okay")
+                                    .setPositiveListener(object : ClickListener {
+                                        override fun onClick(dialog: LottieAlertDialog) {
+                                            dialog.dismiss()
+                                        }
+                                    })
                             )
                         }
                     })
@@ -71,7 +76,7 @@ class LottieAlertDialogActivity : AppCompatActivity() {
                         }
                     })
             )
-        }, 4000)
+        }, 10000)
     }
 
     fun onClick(view: View) {
@@ -113,15 +118,16 @@ class LottieAlertDialogActivity : AppCompatActivity() {
                     })
                     .setNegativeListener(object : ClickListener {
                         override fun onClick(dialog: LottieAlertDialog) {
-                            alertDialog.changeDialog(LottieAlertDialog.Builder(parentActivity, DialogTypes.TYPE_WARNING)
-                                .setTitle("Warning")
-                                .setDescription("Some warning.")
-                                .setPositiveText("Okay")
-                                .setPositiveListener(object : ClickListener {
-                                    override fun onClick(dialog: LottieAlertDialog) {
-                                        dialog.dismiss()
-                                    }
-                                })
+                            alertDialog.changeDialog(
+                                LottieAlertDialog.Builder(parentActivity, DialogTypes.TYPE_WARNING)
+                                    .setTitle("Warning")
+                                    .setDescription("Some warning.")
+                                    .setPositiveText("Okay")
+                                    .setPositiveListener(object : ClickListener {
+                                        override fun onClick(dialog: LottieAlertDialog) {
+                                            dialog.dismiss()
+                                        }
+                                    })
                             )
                         }
                     })
@@ -132,5 +138,27 @@ class LottieAlertDialogActivity : AppCompatActivity() {
                     })
             )
         }, 2000)
+
+    }
+
+
+    /**
+     * 隐藏虚拟按键，并且全屏
+     *
+     * @param activity
+     */
+   public fun hideBottomUIMenu(activity: Activity) {
+        // 隐藏虚拟按键,并且全屏
+        if (Build.VERSION.SDK_INT in 12..18) {
+            var v = activity.window.decorView
+            v.systemUiVisibility = View.GONE
+        } else {
+            if (Build.VERSION.SDK_INT >= 19) {
+                var decorView = activity.window.decorView
+                var uiOptions = (View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or View.SYSTEM_UI_FLAG_FULLSCREEN)
+                decorView.systemUiVisibility = uiOptions
+            }
+        }
     }
 }

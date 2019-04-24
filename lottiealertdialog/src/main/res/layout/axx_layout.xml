@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:n1="http://schemas.android.com/apk/res/android"
+                                                 n1:fitsSystemWindows="true"
+                                                 n1:background="#ffd1d1d1"
+                                                 n1:layout_width="fill_parent"
+                                                 n1:layout_height="fill_parent">
+    <include n1:id="@+id/include" layout="@layout/activity_content"/>
+    <android.support.design.widget.FloatingActionButton xmlns:n2="http://schemas.android.com/apk/res-auto"
+                                                        n1:layout_gravity="center"
+                                                        n1:id="@+id/fab_search"
+                                                        n1:layout_width="40.0dip"
+                                                        n1:layout_height="40.0dip"
+                                                        n1:layout_marginLeft="12.0dip"
+                                                        n1:layout_marginTop="28.0dip"
+                                                        n1:src="@drawable/search" n1:adjustViewBounds="true"
+                                                        n2:fabSize="mini"
+                                                        n2:layout_anchor="@id/include"
+                                                        n2:layout_anchorGravity="center|left|top"/>
+    <EditText xmlns:n3="http://schemas.android.com/apk/res-auto" n1:autoLink="all" n1:id="@+id/timeline_search_bar"
+              n1:background="#ffeeeeee"
+              n1:focusable="true" n1:focusableInTouchMode="true" n1:visibility="gone"
+              n1:layout_width="fill_parent" n1:layout_height="40.0dip" n1:layout_marginLeft="58.0dip"
+              n1:layout_marginTop="28.0dip" n1:hint="Search notes..." n1:maxLines="1" n1:inputType="text"
+              n3:layout_anchor="@+id/include" n3:layout_anchorGravity="center|top"/>
+    <ImageView xmlns:n4="http://schemas.android.com/apk/res-auto" n1:layout_gravity="center" n1:id="@+id/sync_spinner"
+               n1:visibility="gone"
+               n1:layout_width="wrap_content" n1:layout_height="wrap_content" n1:layout_marginLeft="20.0dip"
+               n1:layout_marginBottom="60.0dip" n1:src="@drawable/sync" n1:tint="@android:color/darker_gray"
+               n4:layout_anchor="@+id/include" n4:layout_anchorGravity="bottom|center|left"/>
+    <android.support.design.widget.FloatingActionButton xmlns:n5="http://schemas.android.com/apk/res-auto"
+                                                        n1:layout_gravity="center"
+                                                        n1:id="@+id/fab_menu"
+                                                        n1:layout_width="40.0dip"
+                                                        n1:layout_height="40.0dip"
+                                                        n1:layout_margin="12.0dip"
+                                                        n1:src="@drawable/menu" n1:adjustViewBounds="true"
+                                                        n5:fabSize="mini"
+                                                        n5:layout_anchor="@id/include"
+                                                        n5:layout_anchorGravity="bottom|center|left"/>
+    <android.support.design.widget.FloatingActionButton xmlns:n6="http://schemas.android.com/apk/res-auto"
+                                                        n1:layout_gravity="center|top"
+                                                        n1:id="@+id/fab_add"
+                                                        n1:layout_width="40.0dip"
+                                                        n1:layout_height="40.0dip"
+                                                        n1:layout_margin="12.0dip"
+                                                        n1:src="@drawable/add" n6:fabSize="mini"
+                                                        n6:layout_anchor="@id/include"
+                                                        n6:layout_anchorGravity="bottom|center|right"/>
+</android.support.design.widget.CoordinatorLayout>

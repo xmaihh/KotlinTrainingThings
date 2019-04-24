@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.lottiealertdialog.DashedFrameLayout xmlns:n1="http://schemas.android.com/apk/res/android"
+                                             xmlns:n2="http://schemas.android.com/apk/res-auto"
+                                             n1:id="@+id/content_main"
+                                             n1:paddingLeft="4.0dip" n1:paddingTop="0.0dip"
+                                             n1:paddingRight="4.0dip" n1:paddingBottom="0.0dip"
+                                             n1:layout_width="fill_parent"
+                                             n1:layout_height="fill_parent"
+                                             n2:layout_behavior="@string/appbar_scrolling_view_behavior">
+    <android.support.v7.widget.RecyclerView n1:id="@+id/timeline" n1:paddingTop="30.0dip" n1:clipToPadding="false"
+                                            n1:layout_width="fill_parent" n1:layout_height="fill_parent"/>
+</com.example.lottiealertdialog.DashedFrameLayout>
